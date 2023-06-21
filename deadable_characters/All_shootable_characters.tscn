@@ -1,0 +1,12 @@
+[gd_scene format=2]
+
+[node name="Character" type="CharacterBody2D"]
+
+[node name="body" type="Sprite2D" parent="."]
+scale = Vector2( 0.4, 0.4 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

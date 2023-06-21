@@ -1,0 +1,94 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Area_objects/Dors.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Tiles.png" type="Texture2D" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Dors_animation"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Dor_texture:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 128 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Dor_texture:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Dor_texture:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 120 ) ]
+}
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 3
+atlas = ExtResource( 2 )
+region = Rect2( 0, 32.003, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 3
+atlas = SubResource( 5 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=3]
+size = Vector2( 18, 64 )
+
+[node name="Dors" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Dor_animation" type="AnimationPlayer" parent="."]
+reset_on_save = false
+anims/Dors_animation = SubResource( 1 )
+anims/RESET = SubResource( 2 )
+
+[node name="Dor_texture" type="Sprite2D" parent="."]
+position = Vector2( 0, 128 )
+texture = SubResource( 4 )
+offset = Vector2( 0, 16 )
+
+[node name="Dor_texture" type="Sprite2D" parent="Dor_texture"]
+position = Vector2( 0, 32 )
+texture = SubResource( 4 )
+offset = Vector2( 0, 16 )
+
+[node name="Dor_texture2" type="Sprite2D" parent="Dor_texture"]
+position = Vector2( 0, 96 )
+texture = SubResource( 4 )
+offset = Vector2( 0, 16 )
+
+[node name="Dor_texture3" type="Sprite2D" parent="Dor_texture"]
+position = Vector2( 0, 64 )
+texture = SubResource( 4 )
+offset = Vector2( 0, 16 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Dor_texture"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dor_texture/StaticBody2D"]
+position = Vector2( 0, 64 )
+shape = SubResource( 3 )

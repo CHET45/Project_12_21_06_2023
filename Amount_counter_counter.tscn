@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Amount_counter_counter.gd" type="Script" id=1]
+
+[node name="Amount_counter_counter" type="Control"]
+offset_left = 63.0
+offset_top = 17.0
+offset_right = 103.0
+offset_bottom = 57.0
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+offset_left = 22.0
+offset_top = 22.0
+offset_right = 62.0
+offset_bottom = 36.0

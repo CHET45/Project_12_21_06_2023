@@ -1,0 +1,282 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Sprites/trol12l-removebg-preview.png" type="Texture2D" id=1]
+[ext_resource path="res://Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Mouse.png" type="Texture2D" id=5]
+
+[sub_resource type="CapsuleShape2D" id=6]
+height = 12.0
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 28.0
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 133.333
+
+[sub_resource type="Animation" id=5]
+resource_name = "Flip_animation_x"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("body:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/keys = {
+"times": PackedFloat32Array( 0, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PackedFloat32Array( 0, 0.15, 0.35, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.43 ), Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ), Vector2( 0.5, 0.43 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Flip_animation_y"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("body:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/keys = {
+"times": PackedFloat32Array( 0, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PackedFloat32Array( 0, 0.15, 0.35, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.503046, 0.430394 ), Vector2( 0, 0 ), Vector2( 1e-05, 1e-05 ), Vector2( 0.503, 0.43 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("body:flip_v")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("body:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("body:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ Vector2( 0.503046, 0.430394 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Player_go"
+length = 0.5
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("body:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0, 0.25, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.503, 0.43 ), Vector2( 0.503, 0.4 ), Vector2( 0.503, 0.43 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PackedFloat32Array( 0, 0.25, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 7.5, 0.0 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "Player_stand"
+tracks/0/type = "value"
+tracks/0/path = NodePath("body:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0, 0.5, 1 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.503, 0.43 ), Vector2( 0.503, 0.4 ), Vector2( 0.503, 0.43 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("body:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ Vector2( 0.503, 0.43 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("body:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 13
+script = ExtResource( 2 )
+speed = 250.0
+rotation_speed = 100.0
+max_health = 50
+gun_position = 12.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.342, 0.37 )
+position_smoothing_enabled = true
+
+[node name="body" type="Sprite2D" parent="."]
+position = Vector2( -2.38419e-07, 0 )
+scale = Vector2( 0.503, 0.43 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 0
+position = Vector2( 1, -1.19209e-07 )
+shape = SubResource( 6 )
+
+[node name="GunTimer" type="Timer" parent="."]
+
+[node name="Gun_rearm" type="Timer" parent="."]
+
+[node name="Flip_timer" type="Timer" parent="."]
+
+[node name="Flip_cooldown" type="Timer" parent="."]
+
+[node name="No_mouse" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="No_mouse"]
+visible = false
+shape = SubResource( 2 )
+
+[node name="Mouse" type="Area2D" parent="."]
+scale = Vector2( 0.03, 0.03 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mouse"]
+shape = SubResource( 3 )
+
+[node name="Sprite2D" type="Sprite2D" parent="Mouse"]
+scale = Vector2( 0.748756, 0.766756 )
+texture = ExtResource( 5 )
+
+[node name="Mouse_is_in" type="Sprite2D" parent="."]
+position = Vector2( 9.53674e-07, 1.19209e-07 )
+scale = Vector2( 0.0211492, 0.0230027 )
+texture = ExtResource( 5 )
+offset = Vector2( 1471.06, 0 )
+
+[node name="Gun" type="Node2D" parent="."]
+position = Vector2( 12, -1 )
+
+[node name="Muzle" type="Marker2D" parent="Gun"]
+
+[node name="Flip_animation" type="AnimationPlayer" parent="."]
+anims/Flip_animation_x = SubResource( 5 )
+anims/Flip_animation_y = SubResource( 8 )
+anims/RESET = SubResource( 7 )
+
+[node name="Player_animation" type="AnimationPlayer" parent="."]
+anims/Player_go = SubResource( 9 )
+anims/Player_stand = SubResource( 11 )
+anims/RESET = SubResource( 10 )
+
+[connection signal="timeout" from="GunTimer" to="." method="_on_GunTimer_timeout"]
+[connection signal="timeout" from="Gun_rearm" to="." method="_on_Gun_rearm_timeout"]
+[connection signal="timeout" from="Flip_timer" to="." method="_on_Flip_timer_timeout"]
+[connection signal="timeout" from="Flip_cooldown" to="." method="_on_Flip_cooldown_timeout"]
+[connection signal="area_entered" from="No_mouse" to="." method="_on_No_mouse_area_entered"]
+[connection signal="area_exited" from="No_mouse" to="." method="_on_No_mouse_area_exited"]

@@ -1,0 +1,193 @@
+[gd_scene load_steps=10 format=3 uid="uid://ckiajdyi5j02b"]
+
+[ext_resource type="FontFile" uid="uid://tsx78uvyiuua" path="res://Fonts/Balivia.ttf" id="1"]
+[ext_resource type="Script" path="res://GUI/Menu.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://bn8g7eiv68q7d" path="res://icon.png" id="3"]
+[ext_resource type="PackedScene" path="res://Buttons/StartButton.tscn" id="4"]
+[ext_resource type="PackedScene" path="res://GUI/Fade.tscn" id="5"]
+[ext_resource type="PackedScene" path="res://Buttons/OptionsButton.tscn" id="6"]
+[ext_resource type="FontFile" path="res://Font.tres" id="7"]
+[ext_resource type="PackedScene" path="res://Buttons/QuitButton.tscn" id="8"]
+
+[sub_resource type="FontFile" id="1"]
+fallbacks = Array[Font]([ExtResource("1")])
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+pivot_offset = Vector2(-34, -113)
+script = ExtResource("2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Fade" parent="CanvasLayer" instance=ExtResource("5")]
+visible = false
+anchors_preset = 15
+
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 108.0
+offset_right = 1728.0
+offset_bottom = 972.0
+
+[node name="Logo" type="TextureRect" parent="Menu"]
+custom_minimum_size = Vector2(0, 162.18)
+layout_mode = 2
+texture = ExtResource("3")
+stretch_mode = 4
+
+[node name="CenterRow" type="HBoxContainer" parent="Menu"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Buttons" type="VBoxContainer" parent="Menu/CenterRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Start" parent="Menu/CenterRow/Buttons" instance=ExtResource("4")]
+layout_mode = 2
+
+[node name="OptionsButton" parent="Menu/CenterRow/Buttons" instance=ExtResource("6")]
+custom_minimum_size = Vector2(500, 146)
+layout_mode = 2
+
+[node name="QuitButton" parent="Menu/CenterRow/Buttons" instance=ExtResource("8")]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Menu/CenterRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Menu/CenterRow/CenterContainer"]
+layout_mode = 2
+texture = ExtResource("3")
+
+[node name="Version" type="Label" parent="Menu"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("1")
+text = "Version 0"
+
+[node name="Options_menu(Dodelay_kogda-nibud_potom)" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Zatemnenije" type="ColorRect" parent="Options_menu(Dodelay_kogda-nibud_potom)"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.239216)
+
+[node name="Interface" type="Control" parent="Options_menu(Dodelay_kogda-nibud_potom)"]
+anchors_preset = 0
+offset_left = 300.0
+offset_top = 100.0
+offset_right = 1620.0
+offset_bottom = 980.0
+
+[node name="Borders" type="ReferenceRect" parent="Options_menu(Dodelay_kogda-nibud_potom)/Interface"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+border_color = Color(0, 0, 0, 1)
+border_width = 12.0
+editor_only = false
+
+[node name="Fon" type="ColorRect" parent="Options_menu(Dodelay_kogda-nibud_potom)/Interface"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.25098, 0.168627, 0.168627, 1)
+
+[node name="Menu" type="VBoxContainer" parent="Options_menu(Dodelay_kogda-nibud_potom)/Interface"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Up_Buttons" type="HBoxContainer" parent="Options_menu(Dodelay_kogda-nibud_potom)/Interface/Menu"]
+custom_minimum_size = Vector2(0, 77)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Graphics" type="Button" parent="Options_menu(Dodelay_kogda-nibud_potom)/Interface/Menu/Up_Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7")
+text = "Graphics"
+
+[node name="Sound" type="Button" parent="Options_menu(Dodelay_kogda-nibud_potom)/Interface/Menu/Up_Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7")
+text = "Sound"
+
+[node name="Gameplay" type="Button" parent="Options_menu(Dodelay_kogda-nibud_potom)/Interface/Menu/Up_Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7")
+text = "Gameplay"
+
+[node name="Language" type="Button" parent="Options_menu(Dodelay_kogda-nibud_potom)/Interface/Menu/Up_Buttons"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7")
+text = "Sound"
+
+[node name="Buttons" type="VBoxContainer" parent="Options_menu(Dodelay_kogda-nibud_potom)/Interface/Menu"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Name_Button" type="HBoxContainer" parent="Options_menu(Dodelay_kogda-nibud_potom)/Interface/Menu/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Graphic" type="TextEdit" parent="Options_menu(Dodelay_kogda-nibud_potom)/Interface/Menu/Buttons/Name_Button"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("7")
+text = "Graphic:"
+
+[node name="Graphic_button" type="Button" parent="Options_menu(Dodelay_kogda-nibud_potom)/Interface/Menu/Buttons/Name_Button"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Graphic_type" type="PopupMenu" parent="Options_menu(Dodelay_kogda-nibud_potom)/Interface/Menu/Buttons/Name_Button/Graphic_button"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options_menu(Dodelay_kogda-nibud_potom)/Interface/Menu/Buttons/Name_Button/Graphic_button/Graphic_type"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -595.0
+
+[node name="TextEdit" type="Button" parent="Options_menu(Dodelay_kogda-nibud_potom)/Interface/Menu/Buttons/Name_Button/Graphic_button/Graphic_type/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="Options_menu(Dodelay_kogda-nibud_potom)/Interface/Menu/Buttons/Name_Button/Graphic_button/Graphic_type/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="Menu/CenterRow/Buttons/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="Menu/CenterRow/Buttons/OptionsButton" to="." method="_on_OptionsButton_pressed"]
+[connection signal="pressed" from="Menu/CenterRow/Buttons/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="Options_menu(Dodelay_kogda-nibud_potom)/Interface/Menu/Buttons/Name_Button/Graphic_button" to="." method="_on_Button_pressed"]
